@@ -9,16 +9,16 @@
 <body>
     <div class="container">
         <h2>Hi , Welcom Back !</h2>
-        <form onsubmit="loginUser(event)">
-        <input type="text" id="username" placeholder="Enter your Username" value="username" required /> <br>
-        <input type="email" id="email" placeholder="Enter your email address" value="email" required/> <br>
-        <input type="password" id="password" placeholder="Enter Password" value="password"  required/> <br>
-        <a href="">Forget Password?</a> <br>
-        <button type="submit" onclick="validateLogin(event)">Continue with Email</button><br>
+        <form onsubmit="validateLogin(event)">
+        <input type="text" id="username" placeholder="Enter your Username"  required /> <br>
+        <input type="email" id="email" placeholder="Enter your email address"  required/> <br>
+        <input type="password" id="password" placeholder="Enter Password" minlength="6" required/> <br>
+        <a href="#">Forget Password?</a> <br>
+        <button type="submit">Continue with Email</button><br>
         <span>or continue with</span>
         <p  class="link">continue with Google</p>
         <p  class="link">continue with Apple</p>
-        <p>Don't have an account ? <span>Sign Up</span></p>
+        <p>Don't have an account ? <span> <a href="register.html">Sign Up</a></span></p>
         </form>
     </div>
     <script src="script.js"></script>

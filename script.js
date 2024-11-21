@@ -1,21 +1,18 @@
-function loginUser(event) {
-  event.preventDefault(); 
-  const usernameInput = document.getElementById("username").value.trim();
-  const passwordInput = document.getElementById("password").value.trim();
-
-  const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
-    const [key, value] = cookie.split("=");
-    acc[key] = value;
-    return acc;
-  }, {});
-
-  if (
-    cookies.username === usernameInput &&
-    cookies.password === passwordInput
-  ) {
-    alert("Login successful!");
-    window.location.href = "products.html"; //to products page
-  } else {
-    alert("Invalid username or password.");
-  }
+function validateLogin(event) {
+    event.preventDefault();
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    if (username === "") {
+    alert("Username cannot be empty!");
+    return;
+    }
+    if (password === "") {
+    alert("Password cannot be empty!");
+    return;
+    }
+    if (password.length < 6) {
+    alert("Password must be at least 6 characters long!");
+    return;
+    }
+    alert("Validation successful!");
 }
