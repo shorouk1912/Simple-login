@@ -1,14 +1,21 @@
-let validUsername = "user";
-let validPassword = "12345";
-function validateLogin() {
-    let password = document.getElementById("password").value;
-    let username = document.getElementById("username").value;
-    if (username === validUsername && password === validPassword) {
-        let message = document.getElementById("message");
-        message.style.color = "green";
-        message.textContent = "Login successful! Welcome";
-    } else {
-    message.style.color = "red";
-    message.textContent = "Invalid username or password. Please try again.";
-    }
+function loginUser(event) {
+  event.preventDefault(); 
+  const usernameInput = document.getElementById("username").value.trim();
+  const passwordInput = document.getElementById("password").value.trim();
+
+  const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+    const [key, value] = cookie.split("=");
+    acc[key] = value;
+    return acc;
+  }, {});
+
+  if (
+    cookies.username === usernameInput &&
+    cookies.password === passwordInput
+  ) {
+    alert("Login successful!");
+    window.location.href = "products.html"; //to products page
+  } else {
+    alert("Invalid username or password.");
+  }
 }
